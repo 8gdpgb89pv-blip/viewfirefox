@@ -1,0 +1,94 @@
+{
+  "manifest_version": 3,
+  "name": "view",
+  "version": "4.0.24",
+  "description": "A cleaner way to open articles through View.",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "view — Read any article"
+  },
+  "commands": {
+    "open-current-with-view": {
+      "suggested_key": {
+        "default": "Alt+Shift+V",
+        "mac": "Ctrl+Shift+V"
+      },
+      "description": "Open the current page with View"
+    },
+    "open-current-reader-mode": {
+      "suggested_key": {
+        "default": "Alt+Shift+R",
+        "mac": "Ctrl+Shift+R"
+      },
+      "description": "Open the current page in Reader View"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://removepaywall.com/*",
+        "https://removepaywall.com/*",
+        "http://www.removepaywall.com/*",
+        "https://www.removepaywall.com/*"
+      ],
+      "js": [
+        "serviceCleaner.js"
+      ],
+      "css": [
+        "serviceCleaner.css"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "contentScript.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{79875c40-ed9d-481a-a274-929daf40717d}",
+      "strict_min_version": "115.0",
+      "data_collection_permissions": {
+        "required": [
+          "websiteActivity"
+        ]
+      }
+    },
+    "gecko_android": {}
+  }
+}

@@ -1,0 +1,25 @@
+/* Exact removepaywall.com ad blockers plus known Google ad shells. */
+#ad_position_box,
+html > ins:nth-of-type(2),
+body > ins:nth-of-type(2),
+body > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2),
+html > body > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > header > nav,
+html > body > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form,
+ins.adsbygoogle.adsbygoogle-noablate,
+ins.adsbygoogle,
+[data-google-av-adk],
+[data-google-av-aid],
+.GoogleActiveViewElement,
+[data-nc="1"],
+#full-slot-autoplay-in-motion,
+#bannerAWithoutBody,
+[class*="ns-vcgft-"],
+[class*="ns-k08pc-"],
+[class*="ns-ayl9i-"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  max-height: 0 !important;
+  min-height: 0 !important;
+}
