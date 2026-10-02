@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>view — Reader</title>
+  <link rel="stylesheet" href="reader.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">view <span>Reader</span></div>
+    <div class="actions">
+      <button id="listen-toggle" type="button">▶ Listen to article</button>
+      <button id="listen-stop" class="listen-stop" type="button" disabled>Stop</button>
+      <select id="listen-speed" class="listen-speed" aria-label="Reading speed">
+        <option value="0.8">0.8×</option>
+        <option value="1" selected>1×</option>
+        <option value="1.2">1.2×</option>
+        <option value="1.5">1.5×</option>
+        <option value="1.8">1.8×</option>
+        <option value="2">2×</option>
+      </select>
+      <button id="open-original" type="button">Original</button>
+      <button id="open-view" type="button">Open with View</button>
+    </div>
+  </header>
+  <div id="listen-controls" class="listen-status" aria-live="polite"><span id="listen-status"></span></div>
+  <main id="reader" class="reader">
+    <div class="state" id="state">Loading article…</div>
+  </main>
+  <script src="reader.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>view</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div>
+        <div class="brand-row">
+          <h1>view</h1>
+          <span class="version">4.0.17</span>
+        </div>
+        <p class="subtitle">A cleaner way to read articles</p>
+      </div>
+      <span id="status-pill" class="status-pill is-loading">Checking…</span>
+    </header>
+
+    <section class="current-card" aria-labelledby="current-label">
+      <div id="current-label" class="eyebrow">Current page</div>
+      <div id="current-title" class="page-title">Loading page…</div>
+      <div id="current-url" class="url-box">Loading URL…</div>
+      <div id="detection-note" class="detection-note">Checking for paywall signals…</div>
+    </section>
+
+    <section class="actions" aria-label="Article actions">
+      <button id="open-current" class="button button-primary">
+        <span>Open with View</span><span class="shortcut">⌘⇧V on Mac</span>
+      </button>
+      <div class="action-grid">
+        <button id="open-reader" class="button button-secondary">Reader View</button>
+        <button id="copy-url" class="button button-secondary">Copy link</button>
+      </div>
+      <button id="open-original" class="button button-ghost">Open original page</button>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">Behavior</div>
+          <h2>Preferences</h2>
+        </div>
+      </div>
+
+      <label class="setting">
+        <span>
+          <strong>Floating button</strong>
+          <small>Show View on detected or enabled article pages</small>
+        </span>
+        <input type="checkbox" class="toggle" id="btn-toggle">
+      </label>
+
+      <label class="setting">
+        <span>
+          <strong>Auto-detect</strong>
+          <small>Use page signals to decide when to show View</small>
+        </span>
+        <input type="checkbox" class="toggle" id="auto-toggle">
+      </label>
+
+      <label class="setting">
+        <span>
+          <strong>Open in new tab</strong>
+          <small>Keep the original page open while using View</small>
+        </span>
+        <input type="checkbox" class="toggle" id="tab-toggle">
+      </label>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">Sites</div>
+          <h2>Always show View</h2>
+        </div>
+        <div class="site-heading-actions">
+          <button id="add-current-site" class="button button-secondary add-current" type="button">Add current site</button>
+          <span id="site-count" class="count">0</span>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <input type="text" id="site-input" autocomplete="off" spellcheck="false" placeholder="example.com">
+        <button id="add-input" class="button button-secondary add-button">Add</button>
+      </div>
+
+      <input type="search" id="site-search" class="search" placeholder="Filter enabled sites…" aria-label="Filter enabled sites">
+
+      <div id="site-list" class="site-list">
+        <div class="empty">No sites enabled.</div>
+      </div>
+
+      <button id="reset-sites" class="button button-ghost reset">Restore built-in site list</button>
+    </section>
+
+    <footer class="footer">
+      <span id="privacy-note">The current URL is sent to the external View service only when you choose “Open with View”.</span>
+    </footer>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>
